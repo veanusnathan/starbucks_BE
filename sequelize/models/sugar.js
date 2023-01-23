@@ -1,30 +1,26 @@
 "use strict";
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-	class cart extends Model {
+	class sugar extends Model {
 		/**
 		 * Helper method for defining associations.
 		 * This method is not a part of Sequelize lifecycle.
 		 * The `models/index` file will call this method automatically.
 		 */
-		static associate({ user, transaction, size, sugar, product }) {
+		static associate(models) {
 			// define association here
 		}
 	}
-	cart.init(
+	sugar.init(
 		{
-			id: {
-				type: DataTypes.INTEGER,
-				primaryKey: true,
-				autoIncrement: true,
-			},
+			name: DataTypes.STRING,
 		},
 		{
 			sequelize,
-			modelName: "cart",
+			modelName: "sugar",
 			freezeTableName: true,
 			timestamps: false,
 		}
 	);
-	return cart;
+	return sugar;
 };
